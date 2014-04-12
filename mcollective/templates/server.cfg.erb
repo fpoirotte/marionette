@@ -1,0 +1,30 @@
+main_collective = mcollective
+collectives = mcollective
+libdir = <%= scope.lookupvar('libdir') %>
+logfile = <%= scope.lookupvar('logfile') %>
+loglevel = info
+daemonize = 1
+
+# Plugins
+securityprovider = psk
+plugin.psk = unset
+
+direct_addressing = 1
+identity = <%= scope.lookupvar('fqdn') %>
+
+connector = rabbitmq
+plugin.rabbitmq.vhost = /mcollective
+plugin.rabbitmq.pool.size = 1
+plugin.rabbitmq.pool.1.host = <%= scope.lookupvar('mco_server') %>
+plugin.rabbitmq.pool.1.port = 61613
+plugin.rabbitmq.pool.1.user = mcollective
+plugin.rabbitmq.pool.1.password = <%= scope.lookupvar('mco_pass') %>
+
+# Puppet
+plugin.puppet.command = "<%= scope.lookupvar('puppet_bin') %>" agent
+
+# Facts
+factsource = yaml
+fact_cache_time = 300
+plugin.yaml = <%= scope.lookupvar('plugin_yaml') %>
+

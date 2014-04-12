@@ -1,0 +1,23 @@
+# do not specify variables when running cowbuilder --create or --update
+if [ -f debian/changelog ]; then
+    [ -z "$ARCH" ] && ARCH=$(dpkg --print-architecture)
+    [ -z "$DIST" ] && DIST=$(dpkg-parsechangelog | sed -n 's/^Distribution: //p')
+fi
+
+PDEBUILD_PBUILDER="/usr/sbin/cowbuilder --build --basepath /var/cache/pbuilder/base-${DIST}_${ARCH}.cow"
+
+DEBBUILDOPTS="-d ${OPTS}"
+
+ARCHITECTURE=${ARCH}
+
+BUILDRESULT=~/build-area
+
+MIRRORSITE=http://mirror.ovh.net/debian
+EXTRAPACKAGES="$EXTRAPACKAGES lintian"
+
+AUTO_DEBSIGN=yes
+
+#
+#HOOKDIR=${HOME}/.pbuilder/hooks/
+
+PKGNAME_LOGFILE_EXTENTION="_${ARCH}.build"

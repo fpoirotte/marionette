@@ -1,0 +1,3 @@
+[submodule "netrc"]
+	path = netrc
+	url = https://github.com/saheba/puppet-netrc.git
