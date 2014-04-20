@@ -1,0 +1,768 @@
+servers = (
+  {
+    address = "irc.iiens.net";
+    chatnet = "iiens";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_cafile = "/home/clicky/.irssi/certs/ca.iiens.net.pem";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.secours.iiens.net";
+    chatnet = "iiens";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_cafile = "/home/clicky/.irssi/certs/ca.iiens.net.pem";
+  },
+  {
+    address = "irc.rizon.no";
+    chatnet = "rizon";
+    port = "9999";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_cafile = "/home/clicky/.irssi/certs/irc.rizon.no.pem"
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.uworld.se";
+    chatnet = "rizon";
+    port = "9999";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_cafile = "/home/clicky/.irssi/certs/irc.uworld.se.pem"
+  },
+  {
+    address = "montreal.ca.epiknet.org";
+    chatnet = "EpiKnet";
+    port = "7002";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_cafile = "/home/clicky/.irssi/certs/montreal.ca.epiknet.org.pem";
+    autoconnect = "yes";
+  },
+  {
+    address = "barjavel.freenode.net";
+    chatnet = "freenode";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.choopa.net";
+    chatnet = "EFNet";
+    port = "9999";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  EFNet = {
+    type = "IRC";
+    max_kicks = "4";
+    max_modes = "4";
+    max_msgs = "3";
+    max_whois = "1";
+  };
+  DALnet = {
+    type = "IRC";
+    max_kicks = "4";
+    max_modes = "6";
+    max_msgs = "3";
+    max_whois = "30";
+  };
+  freenode = {
+    type = "IRC";
+    max_kicks = "4";
+    max_modes = "4";
+    max_msgs = "1";
+    max_whois = "1";
+    autosendcmd = "identify NickServ;wait 2000";
+  };
+  EpiKnet = { type = "IRC"; autosendcmd = "identify NickServ;wait 2000"; };
+  iiens = { type = "IRC"; autosendcmd = "identify NickServ;wait 2000"; };
+  rizon = { type = "IRC"; };
+};
+
+channels = (
+  { name = "#ragot"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#arise"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#teletubbies"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#webdev"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#tiff"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#iie++"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#manga"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#1A"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#2A"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#3A"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#ensiie"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#ines"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#cs"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#erebot"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#jeux"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#gazelle"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#ines"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#ultrastar"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#znatn"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#lunix"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#blue"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#git"; chatnet = "iiens"; autojoin = "Yes"; },
+  { name = "#mew"; chatnet = "EpiKnet"; autojoin = "Yes"; },
+  { name = "#scp"; chatnet = "EpiKnet"; autojoin = "Yes"; },
+  { name = "#Yaourtiere"; chatnet = "EpiKnet"; autojoin = "Yes"; }
+);
+
+aliases = {
+  J = "join";
+  WJOIN = "join -window";
+  WQUERY = "query -window";
+  LEAVE = "part";
+  BYE = "quit";
+  EXIT = "quit";
+  SIGNOFF = "quit";
+  DESCRIBE = "action";
+  DATE = "time";
+  HOST = "userhost";
+  LAST = "lastlog";
+  SAY = "msg *";
+  WI = "whois";
+  WII = "whois $0 $0";
+  WW = "whowas";
+  W = "who";
+  N = "names";
+  M = "msg";
+  T = "topic";
+  C = "clear";
+  CL = "clear";
+  K = "kick";
+  KB = "kickban";
+  KN = "knockout";
+  BANS = "ban";
+  B = "ban";
+  MUB = "unban *";
+  UB = "unban";
+  IG = "ignore";
+  UNIG = "unignore";
+  SB = "scrollback";
+  UMODE = "mode $N";
+  WC = "window close";
+  WN = "window new hide";
+  SV = "say Irssi $J ($V) - http://irssi.org/";
+  GOTO = "join";
+  CHAT = "dcc chat";
+  RUN = "SCRIPT LOAD";
+  UPTIME = "eval exec - expr `date +%s` - \\$F | awk '{print \"Irssi uptime: \"int(\\\\\\$1/3600/24)\"d \"int(\\\\\\$1/3600%24)\"h \"int(\\\\\\$1/60%60)\"m \"int(\\\\\\$1%60)\"s\" }'";
+  CALC = "exec - if which bc &>/dev/null\\; then echo '$*' | bc | awk '{print \"$*=\"$$1}'\\; else echo bc was not found\\; fi";
+  SBAR = "STATUSBAR";
+  INVITELIST = "mode $C +I";
+  Q = "QUERY";
+  identify = "exec - -msg $0 eval grep -E '^$chatnet:$0:' /home/clicky/.irssi/identify 2> /dev/null | cut -d ':' -f3- | xargs echo";
+};
+
+statusbar = {
+  # formats:
+  # when using {templates}, the template is shown only if it's argument isn't
+  # empty unless no argument is given. for example {sb} is printed always,
+  # but {sb $T} is printed only if $T isn't empty.
+
+  items = {
+    # start/end text in statusbars
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+
+    # treated "normally", you could change the time/user name to whatever
+    time = "{sb $Z}";
+    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
+
+    # treated specially .. window is printed with non-empty windows,
+    # window_empty is printed with empty windows
+    window = "{sb $winref:$itemname{sbmode $M}}";
+    window_empty = "{sb $winref{sbservertag $tag}}";
+    prompt = "{prompt $[.15]itemname}";
+    prompt_empty = "{prompt $winname}";
+    topic = " $topic";
+    topic_empty = " Irssi v$J - http://irssi.org/help/";
+
+    # all of these treated specially, they're only displayed when needed
+    lag = "{sb Lag: $0-}";
+    act = "{sb Act: $0-}";
+    more = "-- more --";
+  };
+
+  # there's two type of statusbars. root statusbars are either at the top
+  # of the screen or at the bottom of the screen. window statusbars are at
+  # the top/bottom of each split window in screen.
+  default = {
+    # the "default statusbar" to be displayed at the bottom of the window.
+    # contains all the normal items.
+    window = {
+      disabled = "no";
+
+      # window, root
+      type = "window";
+      # top, bottom
+      placement = "bottom";
+      # number
+      position = "1";
+      # active, inactive, always
+      visible = "active";
+
+      # list of items in statusbar in the display order
+      items = {
+        barstart = { priority = "100"; };
+        time = { };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        act = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    # statusbar to use in inactive split windows
+    window_inact = {
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "inactive";
+      items = {
+        barstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    # we treat input line as yet another statusbar :) It's possible to
+    # add other items before or after the input line item.
+    prompt = {
+      type = "root";
+      placement = "bottom";
+      # we want to be at the bottom always
+      position = "100";
+      visible = "always";
+      items = {
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+        # treated specially, this is the real input line.
+        input = { priority = "10"; };
+      };
+    };
+
+    # topicbar
+    topic = {
+      type = "root";
+      placement = "top";
+      position = "1";
+      visible = "always";
+      items = {
+        topicbarstart = { priority = "100"; };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+settings = {
+  core = {
+    override_coredump_limit = "no";
+    real_name = "Elda Taruta";
+    user_name = "Clicky";
+    nick = "Clicky";
+    recode_out_default_charset = "utf-8";
+    recode_fallback = "iso-8859-15";
+    timestamp_format = "%H:%M:%S";
+    log_timestamp = "%H:%M:%S ";
+  };
+  "fe-common/core" = {
+    activity_hide_level = "NICKS PARTS JOINS QUITS";
+    activity_hilight_level = "MSGS DCCMSGS NOTICES";
+    hilight_level = "PUBLIC DCCMSGS NOTICES";
+    autolog_path = "~/.irclogs/$tag/$0.log";
+    autolog = "yes";
+    term_charset = "UTF-8";
+    emphasis = "no";
+    autolog_colors = "yes";
+  };
+  "irc/core" = { alternate_nick = "Looksup"; };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "irc/dcc" = { dcc_autoget_masks = ""; dcc_autoget = "no"; };
+};
+logs = { };
+hilights = (
+  { text = "Clicky"; nick = "yes"; word = "yes"; },
+  { text = "Looksup"; nick = "yes"; word = "yes"; },
+  { text = "look-away"; nick = "yes"; word = "yes"; }
+);
+completions = {
+  fuck = { value = "┌∩┐⁀‿⁀┌∩┐"; };
+  heart = { value = "♥"; };
+  pika = { value = "（◕ ‿‿ ◕ ）"; };
+  pleine = { value = "♪"; };
+  double = { value = "♫"; };
+};
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#mew";
+        tag = "EpiKnet";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#scp";
+        tag = "EpiKnet";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#osi";
+        tag = "iiens";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ines";
+        tag = "iiens";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ragot";
+        tag = "iiens";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#arise";
+        tag = "iiens";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#cs";
+        tag = "iiens";
+      }
+    );
+  };
+  9 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#jeux";
+        tag = "iiens";
+      }
+    );
+  };
+  10 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "laetitia";
+        tag = "iiens";
+      }
+    );
+  };
+  11 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#teletubbies";
+        tag = "iiens";
+      }
+    );
+  };
+  12 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#webdev";
+        tag = "iiens";
+      }
+    );
+  };
+  13 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#tiff";
+        tag = "iiens";
+      }
+    );
+  };
+  14 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#manga";
+        tag = "iiens";
+      }
+    );
+  };
+  15 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#1A";
+        tag = "iiens";
+      }
+    );
+  };
+  16 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#2A";
+        tag = "iiens";
+      }
+    );
+  };
+  17 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ensiie";
+        tag = "iiens";
+      }
+    );
+  };
+  18 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#erebot";
+        tag = "iiens";
+      }
+    );
+  };
+  19 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#gazelle";
+        tag = "iiens";
+      }
+    );
+  };
+  20 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ultrastar";
+        tag = "iiens";
+      }
+    );
+  };
+  21 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#znatn";
+        tag = "iiens";
+      }
+    );
+  };
+  22 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#lunix";
+        tag = "iiens";
+      }
+    );
+  };
+  23 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#blue";
+        tag = "iiens";
+      }
+    );
+  };
+  24 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#iie++";
+        tag = "iiens";
+      }
+    );
+  };
+  25 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#git";
+        tag = "iiens";
+      }
+    );
+  };
+  26 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#3A";
+        tag = "iiens";
+      }
+    );
+  };
+  27 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#photoshow";
+        tag = "iiens";
+      }
+    );
+  };
+  28 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#gentoo";
+        tag = "iiens";
+      }
+    );
+  };
+  29 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#IRPG";
+        tag = "EpiKnet";
+      }
+    );
+  };
+  30 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "IRPG";
+        tag = "EpiKnet";
+      }
+    );
+  };
+  31 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#IRPG-CHAT";
+        tag = "EpiKnet";
+      }
+    );
+  };
+  32 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#totol";
+        tag = "iiens";
+      }
+    );
+  };
+  33 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#clicky";
+        tag = "iiens";
+      }
+    );
+  };
+  34 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#pear";
+        tag = "choopa";
+      }
+    );
+  };
+  35 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#php.pecl";
+        tag = "choopa";
+      }
+    );
+  };
+  36 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#phpunit";
+        tag = "barjavel";
+      }
+    );
+  };
+  37 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#prelude";
+        tag = "barjavel";
+      }
+    );
+  };
+  38 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#rageux";
+        tag = "iiens";
+      }
+    );
+  };
+  39 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#composer";
+        tag = "barjavel";
+      }
+    );
+  };
+  40 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#composer-dev";
+        tag = "barjavel";
+      }
+    );
+  };
+  41 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#nipponsei";
+        tag = "rizon";
+      }
+    );
+  };
+  42 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#NEWS";
+        tag = "rizon";
+      }
+    );
+  };
+  43 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#cerise_boobs";
+        tag = "iiens";
+      }
+    );
+  };
+  44 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#www-dev";
+        tag = "iiens";
+      }
+    );
+  };
+  45 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#lanpartiie";
+        tag = "iiens";
+      }
+    );
+  };
+  46 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#hhvm";
+        tag = "rizon";
+      }
+    );
+  };
+};
+mainwindows = { 1 = { first_line = "1"; lines = "33"; }; };
