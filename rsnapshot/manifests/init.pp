@@ -31,7 +31,8 @@ class rsnapshot {
 
 	netrc::foruser {
 	root:
-		credentials => [
+		user => root,
+		machine_user_password_triples => [
 			['dedibackup-dc1.online.net',
 			 extlookup('backup_user'),
 			 extlookup('backup_pass')]

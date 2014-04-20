@@ -18,25 +18,25 @@ class phpfarm {
 		group => qa,
 	}
 
-#	define config_git {
-#		if $name =~ /\/([^\/]+)\.git$/ {
-#			$shortname = $1
-#			exec {
-#			"clone-$shortname":
-#				command => "/usr/bin/git clone $name",
-#				cwd => '/home/qa/config/buildenv/git',
-#				unless => "/usr/bin/test -d /home/qa/config/buildenv/git/$shortname",
-#				require => File['/home/qa/config/buildenv/git'],
-#			}
-#		}
-#	}
-#
-#	config_git {[
-#		'git://github.com/pear2/Autoload.git',
-#		'git://github.com/fpoirotte/Pirum.git',
-#		'git://github.com/pyrus/Pyrus.git',
-#		'git://github.com/pyrus/Pyrus_Developer.git',
-#	]:}
+	define config_git {
+		if $name =~ /\/([^\/]+)\.git$/ {
+			$shortname = $1
+			exec {
+			"clone-$shortname":
+				command => "/usr/bin/git clone $name",
+				cwd => '/home/qa/config/buildenv/git',
+				unless => "/usr/bin/test -d /home/qa/config/buildenv/git/$shortname",
+				require => File['/home/qa/config/buildenv/git'],
+			}
+		}
+	}
+
+	config_git {[
+		'git://github.com/pear2/Autoload.git',
+		'git://github.com/fpoirotte/Pirum.git',
+		'git://github.com/pyrus/Pyrus.git',
+		'git://github.com/pyrus/Pyrus_Developer.git',
+	]:}
 
 	exec {
 	"phpfarm-install-custom":

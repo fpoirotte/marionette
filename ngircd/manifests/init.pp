@@ -13,7 +13,7 @@ class ngircd {
 
 	file {
 	"/etc/ngircd/ngircd.conf":
-		source => template('ngircd/ngircd.conf'),
+		content => template('ngircd/ngircd.conf'),
 		require => [
 			Package["ngircd"],
 			File['/etc/openvpn/cacert/dh2048.pem'],
